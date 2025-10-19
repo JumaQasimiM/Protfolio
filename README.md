@@ -1,4 +1,5 @@
 # Protfolio
+Hello, I'm Mohmmad Qasimi
+A passionate developer bringing ideas to life through code and design.
 
-
-Your site is live at https://jumaqasimim.github.io/Protfolio/
+live at https://jumaqasimim.github.io/Protfolio/
