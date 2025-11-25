@@ -11,9 +11,6 @@ import {
 } from "react-icons/fa";
 import myfoto from "../assets/myfoto.jpg";
 
-// Google Fonts: Poppins
-// Add to index.html <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 export const About = () => {
   const [activeTab, setActiveTab] = useState("education");
 
@@ -62,26 +59,26 @@ export const About = () => {
   return (
     <section
       id="about"
-      className="relative py-24 px-6 md:px-12 bg-gray-50 font-poppins"
+      className="relative py-16 sm:py-20 px-4 sm:px-6 md:px-12 bg-gray-50 font-poppins"
     >
       {/* Header */}
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 mb-16 border-b-2 border-gray-200 pb-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 md:gap-4 mb-12 sm:mb-16 border-b-2 border-gray-200 pb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
           About Me
         </h2>
-        <span className="hidden md:block text-blue-400 text-xl md:text-2xl">
+        <span className="hidden md:block text-blue-400 text-lg md:text-xl">
           (01)
         </span>
       </div>
 
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-10 md:gap-16">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-8 md:gap-12">
         {/* Profile Image */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="w-full h-auto sm:w-60 sm:h-60 md:w-72 md:h-72 overflow-hidden shadow-2xl bg-gradient-to-tr from-blue-100 to-blue-50 border border-white/30 flex-shrink-0"
+          className="w-[full] sm:w-48 md:w-60 lg:w-72 xl:w-80 overflow-hidden shadow-2xl bg-gradient-to-tr from-blue-100 to-blue-50 border border-white/30 flex-shrink-0 mx-auto md:mx-0"
         >
           <img
             src={myfoto}
@@ -96,10 +93,10 @@ export const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex-1 flex flex-col gap-6"
+          className="flex-1 flex flex-col gap-4 sm:gap-6"
         >
           {/* Introduction */}
-          <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
+          <p className="text-gray-700 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
             I'm{" "}
             <span className="font-semibold text-blue-600">
               Mohammad Juma Qasimi
@@ -113,14 +110,14 @@ export const About = () => {
           </p>
 
           {/* Tabs */}
-          <div className="flex flex-wrap gap-4 border-b border-gray-300 mb-6">
+          <div className="flex flex-wrap gap-2 sm:gap-3 border-b border-gray-300 mb-4 sm:mb-6">
             {tabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`relative py-2 px-4 font-semibold text-sm sm:text-base rounded-lg transition-all ${
+                className={`py-2 px-3 sm:px-4 font-semibold text-sm sm:text-base rounded-lg transition-all ${
                   activeTab === tab
-                    ? "text-blue-600 bg-blue-50 shadow-inner"
+                    ? "text-white bg-gradient-to-r from-blue-500 to-teal-400 shadow-lg"
                     : "text-gray-500 hover:text-blue-500 hover:bg-gray-100"
                 }`}
               >
@@ -130,7 +127,7 @@ export const About = () => {
           </div>
 
           {/* Tab Content */}
-          <div className="space-y-4 md:space-y-6">
+          <div className="space-y-3 sm:space-y-4 md:space-y-6">
             {/* Education */}
             {activeTab === "education" &&
               education.map((edu, index) => (
@@ -140,17 +137,17 @@ export const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 rounded-xl bg-white shadow-md border border-gray-200"
+                  className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-white shadow-md border border-gray-200 hover:scale-105 transition"
                 >
-                  <div className="text-3xl">{edu.icon}</div>
+                  <div className="text-2xl sm:text-3xl">{edu.icon}</div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 text-base sm:text-lg">
+                    <h3 className="font-semibold text-gray-900 text-sm sm:text-base md:text-lg">
                       {edu.title}
                     </h3>
-                    <p className="text-gray-700 text-sm sm:text-base">
+                    <p className="text-gray-700 text-xs sm:text-sm md:text-base">
                       {edu.institute}
                     </p>
-                    <span className="text-gray-400 text-xs sm:text-sm">
+                    <span className="text-gray-400 text-xs sm:text-xs md:text-sm">
                       {edu.year}
                     </span>
                   </div>
@@ -166,17 +163,17 @@ export const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 rounded-xl bg-white shadow-md border border-gray-200"
+                  className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-white shadow-md border border-gray-200 hover:scale-105 transition"
                 >
-                  <div className="text-3xl">{exp.icon}</div>
+                  <div className="text-2xl sm:text-3xl">{exp.icon}</div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 text-base sm:text-lg">
+                    <h3 className="font-semibold text-gray-900 text-sm sm:text-base md:text-lg">
                       {exp.title}
                     </h3>
-                    <p className="text-gray-700 text-sm sm:text-base">
+                    <p className="text-gray-700 text-xs sm:text-sm md:text-base">
                       {exp.company}
                     </p>
-                    <span className="text-gray-400 text-xs sm:text-sm">
+                    <span className="text-gray-400 text-xs sm:text-xs md:text-sm">
                       {exp.year}
                     </span>
                   </div>
@@ -186,7 +183,7 @@ export const About = () => {
             {/* Skills */}
             {activeTab === "skills" && (
               <motion.div
-                className="flex flex-wrap gap-3"
+                className="flex flex-wrap gap-2 sm:gap-3"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -195,10 +192,10 @@ export const About = () => {
                 {skills.map((skill, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-2 px-4 py-2 bg-white shadow rounded-lg border border-gray-200 hover:scale-105 transition"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-2 bg-white shadow rounded-lg border border-gray-200 hover:scale-105 transition text-sm sm:text-base"
                   >
                     {skill.icon && skill.icon}
-                    <span className="text-gray-800 font-medium text-sm sm:text-base">
+                    <span className="text-gray-800 font-medium">
                       {skill.name}
                     </span>
                   </div>
@@ -209,7 +206,7 @@ export const About = () => {
             {/* Languages */}
             {activeTab === "languages" && (
               <motion.div
-                className="flex flex-wrap gap-3"
+                className="flex flex-wrap gap-2 sm:gap-3"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -218,12 +215,10 @@ export const About = () => {
                 {languages.map((lang, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-2 px-4 py-2 bg-white shadow rounded-lg border border-gray-200 hover:scale-105 transition"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-2 bg-white shadow rounded-lg border border-gray-200 hover:scale-105 transition text-sm sm:text-base"
                   >
                     <FaLanguage className="text-purple-500" />
-                    <span className="text-gray-800 font-medium text-sm sm:text-base">
-                      {lang}
-                    </span>
+                    <span className="text-gray-800 font-medium">{lang}</span>
                   </div>
                 ))}
               </motion.div>

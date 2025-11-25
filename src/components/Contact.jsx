@@ -11,7 +11,7 @@ import { ContactForm } from "./contactForm";
 
 export const Contact = () => {
   return (
-    <section id="contact" className="py-24 bg-gray-50 px-6">
+    <section id="contact" className="py-8 md:py-24 bg-gray-50 px-6">
       <div className="max-w-6xl mx-auto flex flex-col justify-between md:flex-row items-center gap-16 border-b-2 mb-10 md:mb-20 pb-5">
         <h2 className="text-2xl md:text-5xl font-bold text-gray-900">
           Contact Me

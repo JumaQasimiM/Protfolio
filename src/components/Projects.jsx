@@ -1,8 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-
-// Project images
 import ReactPortfolioImage from "../assets/portfolio.png";
 import javaScriptProjectImage from "../assets/info24.png";
 import reactProjectImage from "../assets/react.png";
@@ -30,31 +28,20 @@ const projects = [
   {
     title: "React Portfolio",
     category: "React",
-    description: "A full- responsive Portfolio built with React & TailwindCSS.",
+    description: "A full-responsive Portfolio built with React & TailwindCSS.",
     image: ReactPortfolioImage,
     github: "#",
-    demo: "mh-jumaqasimi.netlify.app",
+    demo: "https://mh-jumaqasimi.netlify.app",
     tech: ["React", "TailwindCSS", "framer-motion"],
   },
   {
     title: "React CodeManager",
     category: "React",
-    description: "A CodeManager Dashbord for save codes , styls, links.",
+    description: "A CodeManager Dashboard to save codes, styles, links.",
     image: CodeManagerImage,
     github: "https://github.com/JumaQasimiM/CodeManager",
     demo: "#",
-    tech: ["react", "TailwindCSS", "HTML5"],
-  },
-  ,
-  {
-    title: "CodeManager",
-    category: "Tailwind",
-    description:
-      "A CodeManager Dashbord for save codes , styls, links with Tailwind and react",
-    image: CodeManagerImage,
-    github: "https://github.com/JumaQasimiM/CodeManager",
-    demo: "#",
-    tech: ["react", "TailwindCSS", "HTML5"],
+    tech: ["React", "TailwindCSS", "HTML5"],
   },
 ];
 
@@ -62,6 +49,15 @@ const categories = ["All", "JavaScript", "React", "Tailwind"];
 
 export const Projects = () => {
   const [activeTab, setActiveTab] = useState("All");
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const filteredProjects =
     activeTab === "All"
@@ -110,19 +106,28 @@ export const Projects = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
           >
-            <div className="relative overflow-hidden shadow-2xl group">
+            <div
+              className="relative overflow-hidden shadow-2xl group cursor-pointer"
+              onClick={() =>
+                !isDesktop &&
+                setActiveIndex(activeIndex === index ? null : index)
+              }
+            >
               {/* Project Image */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-72 object-contain transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
               {/* Overlay */}
               <motion.div
                 initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.4 }}
+                animate={{
+                  opacity: isDesktop ? 0 : activeIndex === index ? 1 : 0,
+                }}
+                whileHover={isDesktop ? { opacity: 1 } : {}}
+                transition={{ duration: 0.3 }}
                 className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 text-white p-6 flex flex-col justify-between"
               >
                 {/* Top: Title + Description */}

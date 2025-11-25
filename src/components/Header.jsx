@@ -39,7 +39,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${
+      className={`fixed top-0 w-[95%] md:w-full z-50 transition-all duration-300 backdrop-blur-md ${
         isScrolled
           ? "bg-white/80 shadow-lg border-b border-gray-200/40 py-3"
           : "bg-transparent py-5"
