@@ -1,53 +1,64 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 // Project images
-import djangoProjectImage from "../assets/django.png";
-import javaScriptProjectImage from "../assets/javaScript.png";
+import ReactPortfolioImage from "../assets/portfolio.png";
+import javaScriptProjectImage from "../assets/info24.png";
 import reactProjectImage from "../assets/react.png";
-import tailwindProjectImage from "../assets/tailwind.png";
+import CodeManagerImage from "../assets/codemanager.png";
 
 const projects = [
   {
+    title: "React Shop",
+    category: "React",
+    description: "A responsive E-C website using React and Tailwind.",
+    image: reactProjectImage,
+    github: "https://github.com/JumaQasimiM/Tailwindshop",
+    demo: "https://jumaqasimim.github.io/Tailwindshop/",
+    tech: ["React", "TailwindCSS", "Swiperjs"],
+  },
+  {
+    title: "JavaScript InfoPlus24",
+    category: "JavaScript",
+    description: "A News site built with vanilla JavaScript.",
+    image: javaScriptProjectImage,
+    github: "https://github.com/JumaQasimiM/InfoPlus24",
+    demo: "https://jumaqasimim.github.io/InfoPlus24/",
+    tech: ["JavaScript", "HTML", "TailwindCSS"],
+  },
+  {
     title: "React Portfolio",
     category: "React",
-    description: "A responsive portfolio website using React and Tailwind.",
-    image: reactProjectImage,
+    description: "A full- responsive Portfolio built with React & TailwindCSS.",
+    image: ReactPortfolioImage,
     github: "#",
-    demo: "#",
-    tech: ["React", "TailwindCSS", "Framer Motion"],
+    demo: "mh-jumaqasimi.netlify.app",
+    tech: ["React", "TailwindCSS", "framer-motion"],
   },
   {
-    title: "JavaScript Game",
-    category: "JavaScript",
-    description: "A browser-based game built with vanilla JavaScript.",
-    image: javaScriptProjectImage,
-    github: "#",
+    title: "React CodeManager",
+    category: "React",
+    description: "A CodeManager Dashbord for save codes , styls, links.",
+    image: CodeManagerImage,
+    github: "https://github.com/JumaQasimiM/CodeManager",
     demo: "#",
-    tech: ["JavaScript", "HTML", "CSS"],
+    tech: ["react", "TailwindCSS", "HTML5"],
   },
+  ,
   {
-    title: "Django Blog",
-    category: "Django",
-    description: "A full-featured blog built with Django and PostgreSQL.",
-    image: djangoProjectImage,
-    github: "#",
+    title: "CodeManager",
+    category: "Tailwind",
+    description:
+      "A CodeManager Dashbord for save codes , styls, links with Tailwind and react",
+    image: CodeManagerImage,
+    github: "https://github.com/JumaQasimiM/CodeManager",
     demo: "#",
-    tech: ["Django", "Python", "Bootstrap"],
-  },
-  {
-    title: "Python Data Script",
-    category: "Python",
-    description: "A data processing script written in Python.",
-    image: tailwindProjectImage,
-    github: "#",
-    demo: "#",
-    tech: ["Python", "Pandas", "NumPy"],
+    tech: ["react", "TailwindCSS", "HTML5"],
   },
 ];
 
-const categories = ["All", "JavaScript", "React", "Python", "Django"];
+const categories = ["All", "JavaScript", "React", "Tailwind"];
 
 export const Projects = () => {
   const [activeTab, setActiveTab] = useState("All");
@@ -58,102 +69,104 @@ export const Projects = () => {
       : projects.filter((p) => p.category === activeTab);
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col justify-between md:flex-row items-start gap-16 border-b-2 mb-20 pb-5">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+    <section
+      id="projects"
+      className="py-24 px-6 sm:px-12 bg-gray-50 font-poppins"
+    >
+      {/* Header */}
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 mb-10 md:mb-20 border-b-2 border-gray-200 pb-5">
+        <h2 className="text-2xl md:text-5xl font-bold text-gray-900">
           Projects
         </h2>
-        <span className="text-blue-400 text-2xl ">(02)</span>
+        <span className="hidden md:block text-blue-400 text-2xl md:text-3xl">
+          (02)
+        </span>
       </div>
-      <div className="max-w-6xl mx-auto">
-        {/* Filter Tabs */}
-        <div className="flex justify-center gap-4 mb-12 flex-wrap">
-          {categories.map((cat) => (
-            <motion.div
-              key={cat}
-              onClick={() => setActiveTab(cat)}
-              whileHover={{ scale: 1.1 }}
-              className={`cursor-pointer py-2 px-6 rounded-full font-semibold transition-all ${
-                activeTab === cat
-                  ? "bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-lg"
-                  : "bg-white text-gray-700 hover:bg-blue-50"
-              }`}
-            >
-              {cat}
-            </motion.div>
-          ))}
-        </div>
 
-        {/* Projects Grid with animation */}
-        <AnimatePresence>
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="grid gap-8 md:grid-cols-2"
+      {/* Filter Tabs */}
+      <div className="flex justify-center gap-4 flex-wrap mb-12">
+        {categories.map((cat) => (
+          <motion.button
+            key={cat}
+            onClick={() => setActiveTab(cat)}
+            whileHover={{ scale: 1.1 }}
+            className={`py-2 px-6 rounded-full font-semibold transition-all ${
+              activeTab === cat
+                ? "bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-lg"
+                : "bg-white text-gray-700 hover:bg-blue-50"
+            }`}
           >
-            {filteredProjects.map((project, index) => (
+            {cat}
+          </motion.button>
+        ))}
+      </div>
+
+      {/* Projects Grid */}
+      <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+        {filteredProjects.map((project, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+          >
+            <div className="relative overflow-hidden shadow-2xl group">
+              {/* Project Image */}
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-72 object-contain transition-transform duration-500 group-hover:scale-105"
+              />
+
+              {/* Overlay */}
               <motion.div
-                key={index}
-                className="relative rounded overflow-hidden shadow-xl cursor-pointer bg-white"
-                whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.4 }}
+                className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 text-white p-6 flex flex-col justify-between"
               >
-                {/* Project Image */}
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-80 object-cover"
-                />
-
-                {/* Hover Overlay */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0 bg-black/70 text-white p-6 flex flex-col justify-between opacity-0 group-hover:opacity-100"
-                >
-                  <div>
-                    <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                    <p className="text-sm mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 text-xs">
-                      {project.tech.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="bg-white/20 px-2 py-1 rounded-lg"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                {/* Top: Title + Description */}
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-sm mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    {project.tech.map((tech, i) => (
+                      <motion.span
+                        key={i}
+                        whileHover={{ scale: 1.2 }}
+                        className="bg-white/20 px-2 py-1 rounded-lg font-medium"
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
                   </div>
+                </div>
 
-                  {/* Icon Links */}
-                  <div className="flex gap-4 text-2xl mt-4">
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.3, rotate: 10 }}
-                      className="hover:text-gray-200 transition"
-                    >
-                      <FaGithub />
-                    </motion.a>
-                    <motion.a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.3, rotate: -10 }}
-                      className="hover:text-blue-400 transition"
-                    >
-                      <FaExternalLinkAlt />
-                    </motion.a>
-                  </div>
-                </motion.div>
+                {/* Bottom: Buttons */}
+                <div className="flex flex-wrap gap-4 mt-4">
+                  <motion.a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    className="px-4 py-2 bg-gray-800/80 hover:bg-gray-700 rounded-lg flex items-center gap-2 font-medium transition"
+                  >
+                    <FaGithub /> GitHub
+                  </motion.a>
+                  <motion.a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    className="px-4 py-2 bg-blue-600/90 hover:bg-blue-500 rounded-lg flex items-center gap-2 font-medium transition"
+                  >
+                    <FaExternalLinkAlt /> Live Demo
+                  </motion.a>
+                </div>
               </motion.div>
-            ))}
+            </div>
           </motion.div>
-        </AnimatePresence>
+        ))}
       </div>
     </section>
   );

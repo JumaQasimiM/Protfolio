@@ -26,6 +26,11 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Disable page scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
+  }, [isMobileMenuOpen]);
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) section.scrollIntoView({ behavior: "smooth" });
@@ -36,17 +41,18 @@ export const Header = () => {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${
         isScrolled
-          ? "bg-white/70 shadow-lg border-b border-gray-200/40 py-3"
+          ? "bg-white/80 shadow-lg border-b border-gray-200/40 py-3"
           : "bg-transparent py-5"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      {/* <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between border border-amber-700"> */}
+      <nav className="w-full max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
         <h1
           onClick={() => scrollToSection("hero")}
-          className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-green-600 to-sky-500 text-transparent bg-clip-text cursor-pointer"
+          className="text-xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-green-600 to-sky-500 text-transparent bg-clip-text cursor-pointer"
         >
-          Qasimi.dev
+          mJuma.dev
         </h1>
 
         {/* Desktop Navigation */}
@@ -60,8 +66,6 @@ export const Header = () => {
                 {link.icon}
                 <span>{link.name}</span>
               </button>
-
-              {/* Animated underline */}
               <span className="absolute left-0 -bottom-1 h-[2px] bg-gradient-to-r from-blue-600 to-sky-400 w-0 group-hover:w-full transition-all duration-300 rounded-full"></span>
             </li>
           ))}
@@ -69,31 +73,26 @@ export const Header = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
-          <motion.button
+          <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="relative w-8 h-8 flex flex-col justify-between items-center"
           >
-            {/* Line 1 */}
             <span
               className={`block h-1 w-full bg-gray-900 rounded transition-all ${
-                isMobileMenuOpen ? "rotate-45 translate-y-3" : ""
+                isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
               }`}
             ></span>
-
-            {/* Line 2 */}
             <span
               className={`block h-1 w-full bg-gray-900 rounded transition-all ${
                 isMobileMenuOpen ? "opacity-0" : ""
               }`}
             ></span>
-
-            {/* Line 3 */}
             <span
               className={`block h-1 w-full bg-gray-900 rounded transition-all ${
-                isMobileMenuOpen ? "-rotate-45 -translate-y-3" : ""
+                isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
               }`}
             ></span>
-          </motion.button>
+          </button>
         </div>
       </nav>
 
@@ -104,8 +103,8 @@ export const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white/90 backdrop-blur-xl shadow-xl border-b border-gray-200/40 rounded-b-2xl mt-2 p-6 flex flex-col gap-6 text-gray-800 font-medium"
+            transition={{ duration: 0.25 }}
+            className="md:hidden bg-white/95 backdrop-blur-xl shadow-xl border-b border-gray-200/40 p-6 flex flex-col gap-6 text-gray-800 font-medium"
           >
             {navLinks.map((link) => (
               <button

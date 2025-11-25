@@ -12,69 +12,83 @@ import { ContactForm } from "./contactForm";
 export const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-gray-50 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col justify-between md:flex-row items-start gap-16 border-b-2 mb-20 pb-5">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+      <div className="max-w-6xl mx-auto flex flex-col justify-between md:flex-row items-center gap-16 border-b-2 mb-10 md:mb-20 pb-5">
+        <h2 className="text-2xl md:text-5xl font-bold text-gray-900">
           Contact Me
         </h2>
-        <span className="text-sky-400 text-2xl"> ( 03 ) </span>
+        <span className="hidden md:block text-sky-400 text-2xl"> ( 03 ) </span>
       </div>
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row gap-12">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex-1 flex flex-col gap-6"
+            className="flex-1 flex flex-col gap-8"
           >
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+            <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-4">
               Get in Touch
             </h3>
 
-            <div className="flex items-center gap-4 text-gray-700 hover:text-blue-600 transition">
-              <FaEnvelope className="text-2xl text-red-500" />
-              <span>jums82db@gmail.com</span>
-            </div>
-            <div className="flex items-center gap-4 text-gray-700 hover:text-green-500 transition">
-              <FaPhone className="text-2xl text-green-500" />
-              <span>+49 15214795072</span>
+            {/* Contact Cards */}
+            <div className="flex flex-col gap-4">
+              <motion.a
+                href="mailto:jums82db@gmail.com"
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-sky-400 to-blue-500 shadow-lg text-white transition-all"
+              >
+                <FaEnvelope className="text-2xl" />
+                <span className="font-medium text-lg">jums82db@gmail.com</span>
+              </motion.a>
+
+              <motion.a
+                href="tel:+4915214795072"
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-green-400 to-teal-500 shadow-lg text-white transition-all"
+              >
+                <FaPhone className="text-2xl" />
+                <span className="font-medium text-lg">+49 15214795072</span>
+              </motion.a>
             </div>
 
-            <div className="flex items-center gap-4 my-5">
-              {/* Left line */}
+            {/* Divider */}
+            <div className="flex items-center gap-4 my-6">
               <div className="flex-1 h-px bg-gray-300"></div>
-
-              {/* Center text */}
-              <span className="text-gray-500 font-medium">or</span>
-
-              {/* Right line */}
+              <span className="text-gray-500 font-semibold">or</span>
               <div className="flex-1 h-px bg-gray-300"></div>
             </div>
 
             {/* Social Icons */}
-            <div className="flex gap-6 text-3xl text-gray-700 justify-start">
+            <div className="flex gap-6 flex-wrap">
               {[
                 {
                   icon: <FaGithub />,
                   url: "https://github.com/JumaQasimiM",
-                  color: "text-gray-800 hover:text-gray-900",
+                  bg: "bg-gray-900",
+                  hover: "hover:bg-gray-800",
+                  color: "text-white",
                 },
                 {
                   icon: <FaLinkedin />,
                   url: "https://www.linkedin.com/in/mohammad-qasimi/",
-                  color: "text-blue-600 hover:text-blue-700",
+                  bg: "bg-blue-700",
+                  hover: "hover:bg-blue-600",
+                  color: "text-white",
                 },
                 {
                   icon: <FaFacebook />,
                   url: "https://facebook.com/m juma qasimi",
-                  color: "text-blue-700 hover:text-blue-800",
+                  bg: "bg-blue-600",
+                  hover: "hover:bg-blue-500",
+                  color: "text-white",
                 },
-
                 {
                   icon: <FaYoutube />,
-                  url: "https://www.youtube.com/Programingskill",
-                  color: "text-red-500 hover:text-red-600",
+                  url: "",
+                  bg: "bg-red-500",
+                  hover: "hover:bg-red-400",
+                  color: "text-white",
                 },
               ].map((social, index) => (
                 <motion.a
@@ -82,8 +96,8 @@ export const Contact = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.3, rotate: [0, 10, -10, 0] }}
-                  className={`p-3 rounded-full bg-white/70 backdrop-blur-md shadow ${social.color} transition-all`}
+                  whileHover={{ scale: 1.2, rotate: [0, 10, -10, 0] }}
+                  className={`p-4 rounded-xl shadow-lg transition-all ${social.bg} ${social.hover} ${social.color} flex items-center justify-center`}
                 >
                   {social.icon}
                 </motion.a>

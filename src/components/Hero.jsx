@@ -4,12 +4,16 @@ import myfoto from "../assets/myfoto.jpg";
 
 export const Hero = () => {
   return (
-    <section className="relative bg-gray-50 min-h-screen flex flex-col justify-center px-6">
+    <section
+      id="hero"
+      className="relative bg-gray-50 min-h-screen flex flex-col justify-center px-6 pt-28 md:pt-20 overflow-hidden"
+    >
       {/* Background Blur Circles */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-green-300/30 blur-[120px] rounded-full animate-pulse"></div>
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-blue-300/30 blur-[180px] rounded-full animate-bounce"></div>
+      <div className="absolute top-10 right-5 w-40 h-40 md:w-72 md:h-72 bg-green-300/30 blur-[90px] md:blur-[140px] rounded-full"></div>
+      <div className="absolute bottom-10 left-5 w-56 h-56 md:w-96 md:h-96 bg-blue-300/30 blur-[120px] md:blur-[180px] rounded-full"></div>
 
-      <div className="relative max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 z-10">
+      {/* Main Content */}
+      <div className="relative max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10 md:gap-20 z-10">
         {/* Text Section */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -24,18 +28,20 @@ export const Hero = () => {
               Mohammad Juma Qasimi
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-            Front-End Developer crafting{" "}
+
+          <p className="text-base md:text-xl text-gray-700 leading-relaxed">
+            Front-End Developer creating{" "}
             <span className="text-green-500 font-semibold">modern</span>,{" "}
-            <span className="text-teal-500 font-semibold">elegant</span>, and{" "}
-            <span className="text-blue-500 font-semibold">responsive</span>
-            interfaces using JavaScript, React & Tailwind CSS,{" "}
-            <span className="text-blue-500 font-semibold">Python</span> ,
-            dedicated to building intelligent, AI-enhanced user experiences.
+            <span className="text-teal-500 font-semibold">elegant</span>,{" "}
+            <span className="text-blue-500 font-semibold">responsive</span>{" "}
+            interfaces using JavaScript, React & Tailwind CSS, and{" "}
+            <span className="text-blue-500 font-semibold">Python</span> for
+            AI-enhanced user experiences.
           </p>
+
           <div className="flex gap-4 mt-4 flex-wrap justify-center md:justify-start">
             <motion.a
-              whileHover={{ scale: 1.05, rotate: [0, 2, -2, 0] }}
+              whileHover={{ scale: 1.05 }}
               href="#contact"
               className="px-8 py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-xl flex items-center gap-2 shadow-lg hover:shadow-xl transition"
             >
@@ -43,7 +49,7 @@ export const Hero = () => {
             </motion.a>
 
             <motion.a
-              whileHover={{ scale: 1.05, rotate: [0, -2, 2, 0] }}
+              whileHover={{ scale: 1.05 }}
               href="#projects"
               className="px-8 py-3 border border-gray-300 rounded-xl font-semibold text-gray-700 hover:bg-gray-100 transition-all flex items-center gap-2 shadow-md"
             >
@@ -57,42 +63,70 @@ export const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative w-64 h-64 md:w-100 md:h-120 rounded overflow-hidden shadow-2xl bg-white/30 backdrop-blur-xl border border-white/30 flex-shrink-0"
+          className="relative w-full h-auto sm:w-60 sm:h-60 md:w-72 md:h-72 rounded overflow-hidden shadow-2xl bg-white/30 backdrop-blur-xl border border-white/30"
         >
           <img
             src={myfoto}
             alt="Profile"
             className="w-full h-full object-cover"
           />
-          {/* Inner Glow */}
-          <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 via-blue-400/20 to-purple-500/20 rounded-3xl pointer-events-none"></div>
+
+          <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 via-blue-400/20 to-purple-500/20"></div>
         </motion.div>
       </div>
 
-      {/* Social Icons Vertical Bar */}
-      <div className="absolute bottom-10 right-10 flex flex-col items-center gap-6 z-20">
-        <motion.a
-          whileHover={{ scale: 1.3 }}
-          href="#"
-          className="text-gray-900 hover:text-green-500 transition text-3xl"
-        >
-          <FaGithub />
-        </motion.a>
-        <motion.a
-          whileHover={{ scale: 1.3 }}
-          href="#"
-          className="text-gray-900 hover:text-blue-500 transition text-3xl"
-        >
-          <FaLinkedin />
-        </motion.a>
-        <motion.a
-          whileHover={{ scale: 1.3 }}
-          href="#"
-          className="text-gray-900 hover:text-red-500 transition text-3xl"
-        >
-          <FaYoutube />
-        </motion.a>
-        <div className="w-[2px] h-24 bg-gray-300 mt-2"></div>
+      {/* Social Icons (Fully Responsive) */}
+      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 md:left-auto md:right-10 md:translate-x-0 z-40">
+        {/* Mobile Layout */}
+        <div className="md:hidden bg-white/80 backdrop-blur-lg shadow-lg px-6 py-3 rounded-full flex items-center gap-6 border border-gray-200">
+          <motion.a
+            whileHover={{ scale: 1.2 }}
+            href="#"
+            className="text-xl text-gray-700 hover:text-green-500"
+          >
+            <FaGithub />
+          </motion.a>
+          <motion.a
+            whileHover={{ scale: 1.2 }}
+            href="https://github.com/JumaQasimiM"
+            className="text-xl text-gray-700 hover:text-blue-500"
+          >
+            <FaLinkedin />
+          </motion.a>
+          <motion.a
+            whileHover={{ scale: 1.2 }}
+            href="https://www.linkedin.com/in/mohammad-qasimi/"
+            className="text-xl text-gray-700 hover:text-red-500"
+          >
+            <FaYoutube />
+          </motion.a>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:flex flex-col items-center gap-6 text-3xl">
+          <motion.a
+            whileHover={{ scale: 1.2 }}
+            href="https://github.com/JumaQasimiM"
+            className="hover:text-green-500"
+          >
+            <FaGithub />
+          </motion.a>
+          <motion.a
+            whileHover={{ scale: 1.2 }}
+            href="https://www.linkedin.com/in/mohammad-qasimi/"
+            className="hover:text-blue-500"
+          >
+            <FaLinkedin />
+          </motion.a>
+          <motion.a
+            whileHover={{ scale: 1.2 }}
+            href="#"
+            className="hover:text-red-500"
+          >
+            <FaYoutube />
+          </motion.a>
+          <div className="w-[2px] h-20 bg-gray-300"></div>
+        </div>
       </div>
     </section>
   );

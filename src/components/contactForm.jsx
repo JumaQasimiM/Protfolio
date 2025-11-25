@@ -56,7 +56,7 @@ export const ContactForm = () => {
       {/* Submit Button */}
       <motion.button
         whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.2)" }}
-        className="mt-4 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-2xl shadow-lg transition-all text-lg"
+        className="mt-4 px-8 py-4 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-2xl shadow-lg transition-all text-lg"
       >
         Send Message
       </motion.button>

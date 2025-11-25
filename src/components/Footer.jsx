@@ -14,7 +14,7 @@ export const Footer = () => {
         {/* Right Side / Social Icons */}
         <div className="flex gap-6">
           <motion.a
-            href="#"
+            href="https://github.com/JumaQasimiM"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.3, y: -2 }}
@@ -23,22 +23,13 @@ export const Footer = () => {
             <FaGithub />
           </motion.a>
           <motion.a
-            href="#"
+            href="https://www.linkedin.com/in/mohammad-qasimi/"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.3, y: -2 }}
             className="text-gray-300 hover:text-white transition-colors text-xl"
           >
             <FaLinkedin />
-          </motion.a>
-          <motion.a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.3, y: -2 }}
-            className="text-gray-300 hover:text-white transition-colors text-xl"
-          >
-            <FaTwitter />
           </motion.a>
         </div>
       </div>
