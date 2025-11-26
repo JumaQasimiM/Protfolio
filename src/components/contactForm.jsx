@@ -1,64 +1,116 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaUser, FaEnvelope, FaComment } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
+import { CiWarning } from "react-icons/ci";
 export const ContactForm = () => {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_j6y4qgd",
+        "template_44gueu9",
+        e.target,
+        "5PHdd8XfmakRljKox"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setSuccess("Message sent successfully!");
+          e.target.reset();
+        },
+        (error) => {
+          console.log(error.text);
+          setSuccess("Failed to send message. Please try again.");
+        }
+      )
+      .finally(() => setLoading(false));
+  };
+
+  const inputStyle =
+    "border-2 border-green-600 focus:outline-0 focus:border-none peer w-full px-4 pt-6 pb-2 rounded-2xl bg-white/50 backdrop-blur-sm focus:bg-white focus:ring-2 focus:ring-blue-400 transition-all placeholder-transparent";
+
+  const labelStyle =
+    "absolute left-4 text-gray-400 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-blue-500 peer-focus:text-sm";
+
   return (
     <motion.form
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      onSubmit={handleSubmit}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="flex-1 flex flex-col gap-6 p-10 rounded-xl shadow"
+      className="flex-1 flex flex-col gap-6 p-10 rounded-3xl shadow bg-gradient-to-br from-white/60 via-blue-50/50 to-teal-50/50 backdrop-blur-md"
     >
-      <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-        Send a Message
-      </h3>
+      <h3 className="text-3xl font-bold text-gray-900 mb-4">Send a Message</h3>
+      <p className="mb-6 text-amber-800">
+        <CiWarning className="text-amber-400 text-3xl inline-block" /> Please
+        send a message only for work inquiries or urgent situations.
+      </p>
 
       {/* Name Field */}
       <div className="relative">
-        <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
         <input
+          name="name"
           type="text"
           placeholder="Your Name"
-          className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition bg-white/70 placeholder-transparent peer"
+          className={inputStyle}
+          required
         />
-        <label className="absolute left-12 top-4 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-blue-500 peer-focus:text-sm">
-          Your Name
-        </label>
+        <label className={labelStyle}>Your Name</label>
       </div>
 
       {/* Email Field */}
       <div className="relative">
-        <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
         <input
+          name="email"
           type="email"
           placeholder="Your Email"
-          className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 transition bg-white/70 placeholder-transparent peer"
+          className={inputStyle}
+          required
         />
-        <label className="absolute left-12 top-4 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-green-500 peer-focus:text-sm">
-          Your Email
-        </label>
+        <label className={labelStyle}>Your Email</label>
       </div>
 
       {/* Message Field */}
       <div className="relative">
-        <FaComment className="absolute left-4 top-4 text-gray-400" />
         <textarea
+          name="message"
           rows="5"
           placeholder="Your Message"
-          className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 transition bg-white/70 placeholder-transparent peer resize-none"
+          className={
+            inputStyle +
+            " resize-none pt-6 border-2 border-green-600 focus:outline-0 focus:border-none"
+          }
+          required
         ></textarea>
-        <label className="absolute left-12 top-4 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-purple-500 peer-focus:text-sm">
-          Your Message
-        </label>
+        <label className={labelStyle}>Your Message</label>
       </div>
+
+      {/* Success Message */}
+      {success && (
+        <p
+          className={`${
+            success.includes("successfully") ? "text-green-500" : "text-red-500"
+          } font-semibold`}
+        >
+          {success}
+        </p>
+      )}
 
       {/* Submit Button */}
       <motion.button
-        whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.2)" }}
-        className="mt-4 px-8 py-4 bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold rounded-2xl shadow-lg transition-all text-lg"
+        type="submit"
+        whileHover={{ scale: 1.05, boxShadow: "0px 10px 25px rgba(0,0,0,0.2)" }}
+        className="mt-4 px-8 py-4 bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold rounded-2xl shadow-lg transition-all text-lg disabled:opacity-60 disabled:cursor-not-allowed"
+        disabled={loading}
       >
-        Send Message
+        {loading ? "Sending..." : "Send Message"}
       </motion.button>
     </motion.form>
   );
