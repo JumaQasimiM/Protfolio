@@ -31,8 +31,7 @@ export const About = () => {
             Information Sciences
           </p>
           <p>
-            <strong>Degree:</strong> Bachelor (Title: Attendance System),
-            recognized in Germany
+            <strong>Degree:</strong> Bachelor, recognized in Germany
           </p>
           <p>
             <strong>Project:</strong> Developed an application using Python,
@@ -44,14 +43,14 @@ export const About = () => {
     {
       year: "2003 – 2015",
       title: "School & High School",
-      institute: "Kabul, Afghanistan",
+      institute: "Jaghori,Ghazni, Afghanistan",
       icon: <FaGraduationCap className="text-green-500" />,
     },
     {
       year: "2018 - 2019",
       title: "Full-Stack Development Training – Quality Course",
       institute: "Synapse Technologies, kabul, Afghanistan",
-      icon: <FaGraduationCap className="text-green-500" />,
+      icon: <FaGraduationCap className="text-sky-500" />,
     },
 
     {
@@ -72,9 +71,25 @@ export const About = () => {
       icon: <FaBriefcase className="text-blue-500" />,
       details: (
         <>
-          <p>Full-Stack Development: Frontend + Backend</p>
-          <p>Technologies: Python, Django, MySQL, OpenCV, FaceNet</p>
-          <p>Focus: Machine Learning integration with face recognition</p>
+          <ul className="space-y-2 font-semibold">
+            <li className="flex items-start gap-2">
+              <span className="text-teal-600">✔️</span>
+              AI-Powered Attendance System using Face Recognition & Machine
+              Learning
+            </li>
+
+            <li className="flex items-start gap-2">
+              <span className="text-teal-600">🛠️</span>
+              Technologies: Python, Django (Templates), MySQL, OpenCV, FaceNet
+              (Pre-trained Model)
+            </li>
+
+            <li className="flex items-start gap-2">
+              <span className="text-teal-600">⚡</span>
+              Real-time face detection, ML-based identity verification &
+              automated attendance logging
+            </li>
+          </ul>
         </>
       ),
     },
@@ -88,19 +103,30 @@ export const About = () => {
       details: (
         <>
           <h5 className="text-teal-700 font-semibold">Personal Project</h5>
-          <p>A responsive E-commerce website using React and TailwindCSS</p>
-          <p>Technologies: React, TailwindCSS, SwiperJS, REST API</p>
-          <p>
-            Live Demo:{" "}
-            <a
-              href="https://jumaqasimim.github.io/Tailwindshop/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 underline hover:text-blue-700"
-            >
-              Shop
-            </a>
-          </p>
+          <ul className="space-y-2 font-semibold">
+            <li className="flex items-start gap-2">
+              <span className="text-indigo-600">🛒</span>
+              Responsive E-commerce website built with React and TailwindCSS
+            </li>
+
+            <li className="flex items-start gap-2">
+              <span className="text-indigo-600">🛠️</span>
+              Technologies: React, TailwindCSS, SwiperJS, REST API
+            </li>
+
+            <li className="flex items-start gap-2">
+              <span className="text-indigo-600">🔗</span>
+              Live Demo:{" "}
+              <a
+                href="https://jumaqasimim.github.io/Tailwindshop/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline hover:text-blue-700 ml-1"
+              >
+                Shop
+              </a>
+            </li>
+          </ul>
         </>
       ),
     },
@@ -112,19 +138,31 @@ export const About = () => {
       details: (
         <>
           <h5 className="text-teal-700 font-semibold">Personal Project</h5>
-          <p>A news website built with vanilla JavaScript</p>
-          <p>Technologies: JavaScript, HTML, TailwindCSS, REST API</p>
-          <p>
-            Live Demo:{" "}
-            <a
-              href="https://jumaqasimim.github.io/InfoPlus24/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 underline hover:text-blue-700"
-            >
-              InfoPlus24
-            </a>
-          </p>
+
+          <ul className="space-y-2 font-semibold mt-1">
+            <li className="flex items-start gap-2">
+              <span className="text-teal-600">📰</span>A news website built with
+              vanilla JavaScript
+            </li>
+
+            <li className="flex items-start gap-2">
+              <span className="text-teal-600">🛠️</span>
+              Technologies: JavaScript, HTML, TailwindCSS, REST API
+            </li>
+
+            <li className="flex items-start gap-2">
+              <span className="text-teal-600">🔗</span>
+              Live Demo:{" "}
+              <a
+                href="https://jumaqasimim.github.io/InfoPlus24/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline hover:text-blue-700 ml-1"
+              >
+                InfoPlus24
+              </a>
+            </li>
+          </ul>
         </>
       ),
     },
@@ -136,19 +174,28 @@ export const About = () => {
       details: (
         <>
           <h5 className="text-teal-700 font-semibold">Personal Project</h5>
-          <p>A CodeManager dashboard to save codes, styles, and links</p>
-          <p>Technologies: React, TailwindCSS, HTML5</p>
-          <p>
-            GitHub :{" "}
-            <a
-              href="https://github.com/JumaQasimiM/CodeManager"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 underline hover:text-blue-700"
-            >
-              CodeManager
-            </a>
-          </p>
+          <ul className="space-y-1 font-semibold text-gray-700">
+            <li className="flex items-start gap-2">
+              <span className="text-purple-600 text-lg">📁</span>A dashboard to
+              save and manage code snippets, styles, and links
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-purple-600 text-lg">🛠️</span>
+              Technologies: React, TailwindCSS, HTML5
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-purple-600 text-lg">🔗</span>
+              GitHub:{" "}
+              <a
+                href="https://github.com/JumaQasimiM/CodeManager"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline hover:text-blue-700 ml-1"
+              >
+                CodeManager
+              </a>
+            </li>
+          </ul>
         </>
       ),
     },
@@ -195,7 +242,7 @@ export const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="w-[full] sm:w-48 md:w-60 lg:w-72 xl:w-80 overflow-hidden shadow-2xl bg-gradient-to-tr from-blue-100 to-blue-50 border border-white/30 flex-shrink-0 mx-auto md:mx-0"
+          className="w-[70%] sm:w-48 md:w-60 lg:w-72 xl:w-80 overflow-hidden shadow-2xl bg-gradient-to-tr from-blue-100 to-blue-50 border border-white/30 flex-shrink-0 mx-auto md:mx-0"
         >
           <img
             src={myfoto}
@@ -254,23 +301,31 @@ export const About = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative mb-6"
+                  className="relative mb-6 mx-1.5"
                 >
                   <span className="absolute -left-[16px] top-2 w-8 h-8 flex items-center justify-center bg-white border-2 border-blue-400 rounded-full shadow">
                     {edu.icon}
                   </span>
+
                   <div className="bg-white p-5 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition">
-                    <div className="flex justify-between items-center mb-1">
-                      <h3 className="text-xl font-bold text-gray-900">
-                        {edu.title}
-                      </h3>
-                      <span className="text-sm text-blue-500 font-semibold">
-                        {edu.year}
-                      </span>
+                    {/* Title + Year wrapper */}
+                    <div className="mb-1">
+                      <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <h3 className="md:text-xl font-bold text-gray-900">
+                          {edu.title}
+                        </h3>
+
+                        {/* Year → placed under title on mobile */}
+                        <span className="text-sm text-blue-500 font-semibold mt-1 md:mt-0">
+                          {edu.year}
+                        </span>
+                      </div>
                     </div>
+
                     <p className="text-gray-700 font-medium mb-2">
                       {edu.institute}
                     </p>
+
                     {edu.details && (
                       <div className="text-gray-600 text-sm space-y-1">
                         {edu.details}
@@ -290,14 +345,14 @@ export const About = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative mb-6"
+                  className="relative mb-6 mx-1.5 "
                 >
                   <span className="absolute -left-[16px] top-2 w-8 h-8 flex items-center justify-center bg-white border-2 border-blue-400 rounded-full shadow">
                     {exp.icon}
                   </span>
                   <div className="bg-white p-5 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition">
-                    <div className="flex justify-between items-center mb-1">
-                      <h3 className="text-xl font-bold text-gray-900">
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+                      <h3 className="md:text-xl font-bold text-gray-900">
                         {exp.title}
                       </h3>
                       <span className="text-sm text-blue-500 font-semibold">

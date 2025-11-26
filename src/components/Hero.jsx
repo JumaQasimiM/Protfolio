@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaArrowRight, FaYoutube } from "react-icons/fa";
 import myfoto from "../assets/myfoto.jpg";
+import foto from "../assets/foto.jpg";
 
 export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative bg-gray-50 min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 pt-24 md:pt-28 overflow-hidden"
+      className="relative bg-gray-50 min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 md:pt-28 overflow-hidden"
     >
       {/* Background Blur Circles */}
       <div className="absolute top-10 right-5 w-36 h-36 sm:w-44 sm:h-44 md:w-72 md:h-72 bg-green-300/30 blur-[90px] md:blur-[140px] rounded-full"></div>
@@ -24,13 +25,16 @@ export const Hero = () => {
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
             Hi, I'm 👋
             <br />
-            <span className="bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 bg-clip-text text-transparent">
+            <span className="text-2xl md:text-4xl bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 bg-clip-text text-transparent">
               Mohammad Juma Qasimi
             </span>
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-            Front-End Developer creating{" "}
+            <strong className="text-2xl text-green-400">
+              Front-End Developer
+            </strong>{" "}
+            creating{" "}
             <span className="text-green-500 font-semibold">modern</span>,{" "}
             <span className="text-teal-500 font-semibold">elegant</span>,{" "}
             <span className="text-blue-500 font-semibold">responsive</span>{" "}
@@ -39,7 +43,7 @@ export const Hero = () => {
             AI-enhanced user experiences.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center md:justify-start">
+          <div className="flex sm:flex-row gap-4 mt-6 justify-center md:justify-start">
             <motion.a
               whileHover={{ scale: 1.05 }}
               href="#contact"
@@ -63,10 +67,10 @@ export const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative w-[90%] sm:w-56 md:w-72 lg:w-80 rounded overflow-hidden shadow-2xl bg-white/30 backdrop-blur-xl border border-white/30 flex-shrink-0"
+          className="relative w-[70%] sm:w-56 md:w-72 lg:w-80 rounded overflow-hidden shadow-2xl bg-white/30 backdrop-blur-xl border border-white/30 flex-shrink-0"
         >
           <img
-            src={myfoto}
+            src={foto}
             alt="Profile"
             className="w-full h-full object-cover"
           />

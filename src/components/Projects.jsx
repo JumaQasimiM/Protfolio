@@ -67,7 +67,7 @@ export const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-24 px-6 sm:px-12 bg-gray-50 font-poppins"
+      className="pt-5 md:py-24 px-6 sm:px-12 bg-gray-50 font-poppins"
     >
       {/* Header */}
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 mb-10 md:mb-20 border-b-2 border-gray-200 pb-5">
@@ -128,7 +128,7 @@ export const Projects = () => {
                 }}
                 whileHover={isDesktop ? { opacity: 1 } : {}}
                 transition={{ duration: 0.3 }}
-                className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 text-white p-6 flex flex-col justify-between"
+                className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/80 text-white p-6 flex flex-col justify-between"
               >
                 {/* Top: Title + Description */}
                 <div>
