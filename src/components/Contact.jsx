@@ -12,11 +12,27 @@ import { ContactForm } from "./contactForm";
 export const Contact = () => {
   return (
     <section id="contact" className="py-8 md:py-24 bg-gray-50 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col justify-between md:flex-row items-center gap-16 border-b-2 mb-10 md:mb-20 pb-5">
-        <h2 className="text-2xl md:text-5xl font-bold text-gray-900">
+      <div className="max-w-4xl mx-auto text-center mb-16 px-4 sm:px-6 lg:px-0">
+        {/* Animated Heading */}
+        <motion.h2
+          className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 tracking-tight border-b pb-4"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
           Contact Me
-        </h2>
-        <span className="hidden md:block text-sky-400 text-2xl"> ( 03 ) </span>
+        </motion.h2>
+
+        <motion.div
+          className="mt-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+        >
+          {/* <span className="inline-block bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-full font-medium text-sm sm:text-base">
+            Scroll down to explore
+          </span> */}
+        </motion.div>
       </div>
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row gap-12">
@@ -85,7 +101,7 @@ export const Contact = () => {
                 },
                 {
                   icon: <FaYoutube />,
-                  url: "",
+                  url: "https://www.youtube.com/@programingskill",
                   bg: "bg-red-500",
                   hover: "hover:bg-red-400",
                   color: "text-white",

@@ -8,7 +8,7 @@ import CodeManagerImage from "../assets/codemanager.png";
 
 const projects = [
   {
-    title: "React Shop",
+    title: "Shop",
     category: "React",
     description: "A responsive E-C website using React and Tailwind.",
     image: reactProjectImage,
@@ -17,7 +17,7 @@ const projects = [
     tech: ["React", "TailwindCSS", "Swiperjs"],
   },
   {
-    title: "JavaScript InfoPlus24",
+    title: "InfoPlus24",
     category: "JavaScript",
     description: "A News site built with vanilla JavaScript.",
     image: javaScriptProjectImage,
@@ -26,7 +26,7 @@ const projects = [
     tech: ["JavaScript", "HTML", "TailwindCSS"],
   },
   {
-    title: "React Portfolio",
+    title: "Portfolio",
     category: "React",
     description: "A full-responsive Portfolio built with React & TailwindCSS.",
     image: ReactPortfolioImage,
@@ -35,7 +35,7 @@ const projects = [
     tech: ["React", "TailwindCSS", "framer-motion"],
   },
   {
-    title: "React CodeManager",
+    title: "CodeManager Dashboard",
     category: "React",
     description: "A CodeManager Dashboard to save codes, styles, links.",
     image: CodeManagerImage,
@@ -67,16 +67,19 @@ export const Projects = () => {
   return (
     <section
       id="projects"
-      className="pt-5 md:py-24 px-6 sm:px-12 bg-gray-50 font-poppins"
+      className="pt-16 md:pt-24 px-6 sm:px-12 bg-gray-50 font-poppins"
     >
       {/* Header */}
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 mb-10 md:mb-20 border-b-2 border-gray-200 pb-5">
-        <h2 className="text-2xl md:text-5xl font-bold text-gray-900">
-          Projects
-        </h2>
-        <span className="hidden md:block text-blue-400 text-2xl md:text-3xl">
-          (02)
-        </span>
+      <div className="max-w-4xl mx-auto text-center mb-16 px-4 sm:px-6 lg:px-0">
+        {/* Animated Heading */}
+        <motion.h2
+          className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 tracking-tight border-b pb-4"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          Explore My Work
+        </motion.h2>
       </div>
 
       {/* Filter Tabs */}
@@ -104,10 +107,10 @@ export const Projects = () => {
             key={index}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
+            transition={{ duration: 0.5, delay: index * 0.15 }}
           >
             <div
-              className="relative overflow-hidden shadow-2xl group cursor-pointer"
+              className="relative overflow-hidden rounded-2xl shadow-xl group cursor-pointer border border-gray-200"
               onClick={() =>
                 !isDesktop &&
                 setActiveIndex(activeIndex === index ? null : index)
@@ -128,7 +131,7 @@ export const Projects = () => {
                 }}
                 whileHover={isDesktop ? { opacity: 1 } : {}}
                 transition={{ duration: 0.3 }}
-                className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/80 text-white p-6 flex flex-col justify-between"
+                className="absolute inset-0 bg-black/75 text-white p-6 flex flex-col justify-between"
               >
                 {/* Top: Title + Description */}
                 <div>
@@ -150,20 +153,28 @@ export const Projects = () => {
                 {/* Bottom: Buttons */}
                 <div className="flex flex-wrap gap-4 mt-4">
                   <motion.a
-                    href={project.github}
+                    href={project.github !== "#" ? project.github : undefined}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
-                    className="px-4 py-2 bg-gray-800/80 hover:bg-gray-700 rounded-lg flex items-center gap-2 font-medium transition"
+                    className={`px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition ${
+                      project.github !== "#"
+                        ? "bg-gray-800/80 hover:bg-gray-700"
+                        : "bg-gray-400 cursor-not-allowed opacity-60"
+                    }`}
                   >
                     <FaGithub /> GitHub
                   </motion.a>
                   <motion.a
-                    href={project.demo}
+                    href={project.demo !== "#" ? project.demo : undefined}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
-                    className="px-4 py-2 bg-blue-600/90 hover:bg-blue-500 rounded-lg flex items-center gap-2 font-medium transition"
+                    className={`px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition ${
+                      project.demo !== "#"
+                        ? "bg-blue-600/90 hover:bg-blue-500"
+                        : "bg-blue-400 cursor-not-allowed opacity-60"
+                    }`}
                   >
                     <FaExternalLinkAlt /> Live Demo
                   </motion.a>

@@ -49,7 +49,7 @@ export const Hero = () => {
               href="#contact"
               className="px-6 sm:px-8 py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-xl flex items-center gap-2 shadow-lg hover:shadow-xl transition"
             >
-              Contact <FaArrowRight />
+              Hire Me <FaArrowRight />
             </motion.a>
 
             <motion.a
@@ -123,7 +123,7 @@ export const Hero = () => {
           </motion.a>
           <motion.a
             whileHover={{ scale: 1.2 }}
-            href="#"
+            href="https://www.youtube.com/@programingskill"
             className="hover:text-red-500"
           >
             <FaYoutube />
